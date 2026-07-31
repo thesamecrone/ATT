@@ -8,6 +8,13 @@
     appearance: none;
     -webkit-appearance: none;
     -moz-appearance: none;
+    transition: all 0.5s ease;
+}
+
+.excursion-selector__input:hover,
+.excursion-selector__btn:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    transform: scale(1.02);
 }
 
 button {
@@ -27,7 +34,7 @@ html {
     background: #4D799D;
     display: flex;
     align-items: center;
-    justify-content: flex-end;
+    justify-content: center;
 }
 
 .nav {
@@ -46,9 +53,40 @@ html {
     line-height: normal;
 }
 
-.menu__link {
+.menu__link,
+.menu__arrow {
     text-decoration: none;
     color: #FFF;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.menu__item:hover .menu__link,
+.menu__item:hover .menu__arrow {
+    color: #F2B124;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+    filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.4));
+    transform: scale(1.05);
+}
+
+.nav__arrow {
+    transition: color 0.3s ease;
+}
+
+.nav__currency,
+.nav__lang {
+    color: #F2B124;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.nav__currency:hover,
+.nav__lang:hover,
+.nav__arrow:hover {
+    color: #FFF;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+    filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.4));
+    transform: scale(1.05);
 }
 
 .menu__item,
@@ -57,12 +95,8 @@ html {
     display: flex;
     justify-content: center;
     gap: 6px;
-}
-
-.nav__currency,
-.nav__lang {
-    color: #F2B124;
-    cursor: pointer;
+    background-color: transparent;
+    border: none;
 }
 
 .btn.nav__btn {
@@ -72,10 +106,22 @@ html {
     border: 2px solid #F2B124;
     padding: 3px 6px 1px 6px;
     cursor: pointer;
+    transition: all 0.5s ease;
 }
 
-.logo {
+.btn.nav__btn:hover {
+    background-color: #F2B124;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    transform: scale(1.05);
+}
+
+.header__logo {
     margin: 12px 359px 12px 80px;
+    transition: all 0.5s ease;
+}
+
+.header__logo:hover {
+    transform: scale(1.09);
 }
 
 .hero {
@@ -88,6 +134,8 @@ html {
     box-sizing: border-box;
     font-style: normal;
     line-height: normal;
+    display: flex;
+    justify-content: center;
 }
 
 .hero__title {
@@ -101,6 +149,7 @@ html {
     flex-direction: column;
     align-items: flex-start;
     padding-left: 80px;
+    width: 1440px;
 }
 
 .hero__text {
@@ -120,9 +169,18 @@ html {
     text-align: center;
     text-decoration: none;
     color: #FFF;
+    transition: all 0.5s ease;
 }
 
-.svg__container {
+.btn.hero__btn:hover {
+    background-color: #FFF;
+    color: #F2B124;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    font-weight: 600;
+    transform: scale(1.05);
+}
+
+.hero__arrows {
     display: flex;
     flex-direction: column;
     position: relative;
@@ -130,22 +188,28 @@ html {
     height: 40px;
 }
 
-.svg__container svg {
+.hero__arrows svg {
     position: absolute;
     left: 0;
     margin: 10px 0 0 85px;
 }
 
-.arrow__1 {
+.hero__arrow--faded {
     top: 0;
 }
 
-.arrow__2 {
+.hero__arrow--medium {
     top: 8px;
 }
 
-.arrow__3 {
+.hero__arrow--solid {
     top: 16px;
+}
+
+.excursion {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .excursion__schedule {
@@ -233,9 +297,10 @@ html {
     font-style: normal;
     font-weight: 600;
     line-height: normal;
+    transition: all 0.5s ease;
 }
 
-.excursion-selector_svg {
+.excursion-selector__svg {
     position: absolute;
     right: 0;
     margin: 6px;
@@ -265,7 +330,7 @@ html {
     padding: 10px;
 }
 
-.excursion-params {
+.excursion-card__params {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -273,7 +338,8 @@ html {
     position: relative;
 }
 
-.day-price {
+.excursion-card__date,
+.excursion-card__price {
     color: #233849;
     font-size: 14px;
     font-style: normal;
@@ -281,22 +347,22 @@ html {
     line-height: normal;
 }
 
-.time,
-.seat {
+.excursion-card__time,
+.excursion-card__seat {
     color: #000;
     font-size: 14px;
     font-style: normal;
     font-weight: 400;
 }
 
-.excursion-card--invalid,
-.day-price--invalid,
-.time--invalid,
-.seat--invalid {
+.excursion-card__price,
+.excursion-card__date--invalid,
+.excursion-card__time--invalid,
+.excursion-card__seat--invalid {
     color: #727272;
 }
 
-.book {
+.excursion-card__book {
     width: 112px;
     height: 29px;
     border-radius: 3px;
@@ -312,13 +378,21 @@ html {
     bottom: 0px;
     padding-bottom: 1px;
     cursor: pointer;
+    transition: all 0.5s ease;
+}
+
+.excursion-card__book:hover {
+    color: #F2B124;
+    background-color: #fff;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    font-weight: 600;
 }
 
 .excursion__reviews {
-    height: 352px;
+    min-height: 352px;
     display: flex;
     flex-direction: column;
-    padding-bottom: 50px;
+    margin-bottom: 80px;
 }
 
 .excursion__reviews-title {
@@ -328,41 +402,60 @@ html {
     font-style: normal;
     font-weight: 700;
     line-height: normal;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
 }
 
 .excursion__reviews-box {
     display: flex;
     justify-content: center;
-    height: 227px;
+    min-height: 227px;
     gap: 24px;
+    overflow-y: visible;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+    align-items: flex-start;
+    padding: 10px 10px 24px 10px;
+    width: 1287px;
+    overflow: hidden;
+    overflow-x: auto;
+}
+
+.excursion__reviews-box::-webkit-scrollbar {
+    display: none;
 }
 
 .excursion__reviews-card {
     width: 628px;
-    height: 227px;
+    min-height: 227px;
     border-radius: 3px;
     background: #FFF;
-    box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.15);
+    filter: drop-shadow(0px 4px 12px rgba(0, 0, 0, 0.08));
     display: flex;
+    flex-shrink: 0;
+    position: relative;
 }
 
-.review-photo {
+.excursion__review-photo {
     width: 80px;
     height: 80px;
     margin: 20px 20px 127px 20px;
 }
 
-.review-box {
+.excursion__review-body {
     padding: 20px 20px 20px 0;
+    min-height: 187px;
+    gap: 10px;
+    min-height: 187px;
+    flex-direction: column;
+    display: flex;
 }
 
-.review-box-content {
+.excursion__review-content {
     display: flex;
     justify-content: space-between;
 }
 
-.review-name {
+.excursion__review-author {
     color: #233849;
     text-align: center;
     font-size: 14px;
@@ -371,11 +464,11 @@ html {
     line-height: normal;
 }
 
-.review-name--color {
+.excursion__review-author--colored {
     color: #F2B124;
 }
 
-.review-date {
+.excursion__review-date {
     color: #727272;
     font-size: 14px;
     font-style: normal;
@@ -383,25 +476,25 @@ html {
     line-height: normal;
 }
 
-.rate {
+.excursion__review-rating {
     display: flex;
     width: 78px;
     height: 14px;
-    margin: 10px 0 10px 0;
     gap: 1px;
 }
 
-.review-text {
+.excursion__review-text {
     width: 488px;
-    height: 105px;
+    height: auto;
     color: #233849;
     font-size: 14px;
     font-style: normal;
     font-weight: 400;
     line-height: normal;
+    margin-bottom: 0;
 }
 
-.next {
+.excursion__review-more {
     color: #727272;
     font-size: 14px;
     font-style: normal;
@@ -409,6 +502,28 @@ html {
     line-height: normal;
     text-decoration: none;
     cursor: pointer;
+}
+
+.excursion__reviews-controls {
+    display: flex;
+    justify-content: flex-end;
+    gap: 6px;
+    align-items: flex-end;
+}
+
+.excursion__reviews-btn {
+    border-radius: 3px;
+    background: #F2B124;
+    width: 30px;
+    height: 30px;
+    aspect-ratio: 1/1;
+    border: none;
+    cursor: pointer;
+    transition: all 0.5s ease;
+}
+
+.excursion__reviews-btn:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
 
 .footer {
@@ -419,18 +534,24 @@ html {
     align-items: center;
 }
 
-.footer-logo {
+.footer__logo {
     align-self: flex-start;
     width: 180px;
     height: 40px;
     margin: 30px 0 0 0;
 }
 
-.footer-logo--box {
+.footer__logo-box {
     width: 1280px;
+    transition: all 0.5s ease;
+    cursor: pointer;
 }
 
-.footer-content {
+.footer__logo-box:hover {
+    transform: scale(1.01);
+}
+
+.footer__content {
     width: 1280px;
     height: 121px;
     display: flex;
@@ -438,7 +559,7 @@ html {
     margin: 20px 80px 20px 80px;
 }
 
-.footer-contacts {
+.footer__contacts {
     width: 157px;
     height: 121px;
     color: #FFF;
@@ -450,7 +571,7 @@ html {
     flex-direction: column;
 }
 
-.contact {
+.footer__contact-title {
     color: #FFF;
     font-size: 16px;
     font-style: normal;
@@ -459,12 +580,7 @@ html {
     margin-bottom: 10px;
 }
 
-.footer-info {
-    width: 627px;
-    height: 115px;
-}
-
-.call {
+.footer__phone {
     display: flex;
     width: 148px;
     height: 21px;
@@ -472,24 +588,38 @@ html {
     gap: 2px;
 }
 
-.num {
+.footer__phone-link {
     color: #FFF;
     font-size: 14px;
     font-style: normal;
     font-weight: 400;
     line-height: normal;
     width: 126px;
+    text-decoration: none;
+    transition: all 0.5s ease;
 }
 
-.social {
+.footer__phone-link:hover {
+    color: #F2B124;
+    transform: scale(1.05);
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+}
+
+.footer__socials {
     display: flex;
     justify-content: space-between;
     width: 95px;
     height: 25px;
     cursor: pointer;
+    transition: all 0.5s ease;
 }
 
-.footer-info {
+.footer__messenger:hover {
+    filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.4));
+    transform: scale(1.05);
+}
+
+.footer__info {
     width: 627px;
     height: 115px;
     display: flex;
@@ -497,7 +627,7 @@ html {
     gap: 10px;
 }
 
-.footer-info--att {
+.footer__info-text {
     color: #FFF;
     font-size: 14px;
     font-style: normal;
@@ -506,7 +636,7 @@ html {
     width: 518px;
 }
 
-.footer-info--certified {
+.footer__info-cert {
     color: #FFF;
     font-size: 14px;
     font-style: normal;
@@ -515,14 +645,14 @@ html {
     width: 627px;
 }
 
-.footer-line {
+.footer__line {
     width: 1280px;
     height: 1px;
     background: #FFF;
     align-self: center;
 }
 
-.footer-company {
+.footer__copyright {
     margin: 20px 0 30px 0;
     color: #FFF;
     font-size: 14px;

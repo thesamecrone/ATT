@@ -8,13 +8,16 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/media.css">
 </head>
 
 <body>
     <header class="header">
-        <img class="logo" src="/images/logo1.png" alt="logo">
+        <a href="#" class="header__logo-link">
+            <img class="header__logo" src="/images/logo1.png" alt="Ekskursii.by">
+        </a>
         <nav class="nav">
             <ul class="menu">
                 <li class="menu__item"><a href="#" class="menu__link">ПРОГРАММА</a></li>
@@ -22,32 +25,32 @@
                 <li class="menu__item"><a href="#" class="menu__link">ОТЗЫВЫ</a></li>
                 <li class="menu__item">
                     <a href="#" class="menu__link">КОНТАКТЫ</a>
-                    <svg class="arrow" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18"
-                        fill="none">
+                    <svg class="menu__arrow" xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+                        viewBox="0 0 18 18" fill="currentColor">
                         <path
                             d="M14.0303 6.96967C14.3232 7.26256 14.3232 7.73744 14.0303 8.03033L9.53033 12.5303C9.38968 12.671 9.19891 12.75 9 12.75C8.80109 12.75 8.61032 12.671 8.46967 12.5303L3.96967 8.03033C3.67678 7.73744 3.67678 7.26257 3.96967 6.96967C4.26256 6.67678 4.73744 6.67678 5.03033 6.96967L9 10.9393L12.9697 6.96967C13.2626 6.67678 13.7374 6.67678 14.0303 6.96967Z"
-                            fill="white" />
+                            fill="currentColor" />
                     </svg>
                 </li>
             </ul>
 
-            <div class="nav__currency">BYN
-                <svg class="arrow" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18"
-                    fill="none">
+            <button class="nav__currency" type="button">BYN
+                <svg class="nav__currency-arrow" xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+                    viewBox="0 0 18 18" fill="currentColor">
                     <path
                         d="M14.0303 6.96967C14.3232 7.26256 14.3232 7.73744 14.0303 8.03033L9.53033 12.5303C9.38968 12.671 9.19891 12.75 9 12.75C8.80109 12.75 8.61032 12.671 8.46967 12.5303L3.96967 8.03033C3.67678 7.73744 3.67678 7.26257 3.96967 6.96967C4.26256 6.67678 4.73744 6.67678 5.03033 6.96967L9 10.9393L12.9697 6.96967C13.2626 6.67678 13.7374 6.67678 14.0303 6.96967Z"
-                        fill="#F2B124" />
+                        fill="currentColor" />
                 </svg>
-            </div>
-            <div class="nav__lang">РУС
-                <svg class="arrow" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18"
-                    fill="none">
+            </button>
+            <button class="nav__lang" type="button">РУС
+                <svg class="nav__arrow" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18"
+                    fill="currentColor">
                     <path
                         d="M14.0303 6.96967C14.3232 7.26256 14.3232 7.73744 14.0303 8.03033L9.53033 12.5303C9.38968 12.671 9.19891 12.75 9 12.75C8.80109 12.75 8.61032 12.671 8.46967 12.5303L3.96967 8.03033C3.67678 7.73744 3.67678 7.26257 3.96967 6.96967C4.26256 6.67678 4.73744 6.67678 5.03033 6.96967L9 10.9393L12.9697 6.96967C13.2626 6.67678 13.7374 6.67678 14.0303 6.96967Z"
-                        fill="#F2B124" />
+                        fill="currentColor" />
                 </svg>
-            </div>
-            <button class="btn nav__btn">БРОНИРОВАТЬ</button>
+            </button>
+            <button class="btn nav__btn" type="button">БРОНИРОВАТЬ</button>
         </nav>
     </header>
 
@@ -56,9 +59,9 @@
             <h1 class="hero__title">Экскурсия<br>Тысячелетний Брест и<br>Брестская крепость</h1>
             <p class="hero__text">Погрузитесь в историю наследия заповедной памяти</p>
             <a href="#" class="btn hero__btn">РАСПИСАНИЕ</a>
-            <div class="svg__container">
-                <svg class="arrow__1" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                    fill="none">
+            <div class="hero__arrows">
+                <svg class="hero__arrow--faded" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                    viewBox="0 0 24 24" fill="none">
                     <g clip-path="url(#clip0_5_47)">
                         <path d="M24 0H0V24H24V0Z" fill="white" fill-opacity="0.01" />
                         <path d="M23 8L12 19L1 8" stroke="white" stroke-opacity="0.3" stroke-width="2"
@@ -70,8 +73,8 @@
                         </clipPath>
                     </defs>
                 </svg>
-                <svg class="arrow__2" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                    fill="none">
+                <svg class="hero__arrow--medium" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                    viewBox="0 0 24 24" fill="none">
                     <g clip-path="url(#clip0_5_47)">
                         <path d="M24 0H0V24H24V0Z" fill="white" fill-opacity="0.01" />
                         <path d="M23 8L12 19L1 8" stroke="white" stroke-opacity="0.6" stroke-width="2"
@@ -83,8 +86,8 @@
                         </clipPath>
                     </defs>
                 </svg>
-                <svg class="arrow__3" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                    fill="none">
+                <svg class="hero__arrow--solid" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                    viewBox="0 0 24 24" fill="none">
                     <g clip-path="url(#clip0_5_47)">
                         <path d="M24 0H0V24H24V0Z" fill="white" fill-opacity="0.01" />
                         <path d="M23 8L12 19L1 8" stroke="white" stroke-width="2" stroke-linecap="round"
@@ -109,8 +112,8 @@
                     <label class="excursion-selector__label" for="date-from">Дата с</label>
                     <div class="excursion-selector__wrapper">
                         <input class="excursion-selector__input excursion-selector__input--date" type="text"
-                            id="date-from" placeholder="Дд.Мм.Гггг">
-                        <svg class="excursion-selector_svg" xmlns="http://www.w3.org/2000/svg" width="23" height="23"
+                            id="date-from" name="dateFrom" placeholder="Дд.Мм.Гггг">
+                        <svg class="excursion-selector__svg" xmlns="http://www.w3.org/2000/svg" width="23" height="23"
                             viewBox="0 0 23 23" fill="none">
                             <path
                                 d="M18.2083 5.75H4.79167C3.73312 5.75 2.875 6.60812 2.875 7.66667V18.2083C2.875 19.2669 3.73312 20.125 4.79167 20.125H18.2083C19.2669 20.125 20.125 19.2669 20.125 18.2083V7.66667C20.125 6.60812 19.2669 5.75 18.2083 5.75Z"
@@ -139,8 +142,8 @@
                     <label class="excursion-selector__label" for="date-to">Дата по</label>
                     <div class="excursion-selector__wrapper">
                         <input class="excursion-selector__input excursion-selector__input--date" type="text"
-                            id="date-to" placeholder="Дд.Мм.Гггг">
-                        <svg class="excursion-selector_svg" xmlns="http://www.w3.org/2000/svg" width="23" height="23"
+                            id="date-to" name="dateTo" placeholder="Дд.Мм.Гггг">
+                        <svg class="excursion-selector__svg" xmlns="http://www.w3.org/2000/svg" width="23" height="23"
                             viewBox="0 0 23 23" fill="none">
                             <path
                                 d="M18.2083 5.75H4.79167C3.73312 5.75 2.875 6.60812 2.875 7.66667V18.2083C2.875 19.2669 3.73312 20.125 4.79167 20.125H18.2083C19.2669 20.125 20.125 19.2669 20.125 18.2083V7.66667C20.125 6.60812 19.2669 5.75 18.2083 5.75Z"
@@ -168,12 +171,13 @@
                 <div class="excursion-selector__item">
                     <label class="excursion-selector__label" for="adults">Кол-во взрослых</label>
                     <div class="excursion-selector__wrapper">
-                        <select class="excursion-selector__input excursion-selector__input--short" id="adults">
+                        <select class="excursion-selector__input excursion-selector__input--short" id="adults"
+                            name="adults">
                             <option value="1">1</option>
                             <option value="2">2</option>
                         </select>
-                        <svg class="excursion-selector_svg" xmlns="http://www.w3.org/2000/svg" width="23" height="23"
-                            padding="6px" viewBox="0 0 23 23" fill="none">
+                        <svg class="excursion-selector__svg" xmlns="http://www.w3.org/2000/svg" width="23" height="23"
+                            viewBox="0 0 23 23" fill="none">
                             <path
                                 d="M17.9277 8.90569C18.3019 9.27994 18.3019 9.88672 17.9277 10.261L12.1777 16.011C11.9979 16.1907 11.7542 16.2917 11.5 16.2917C11.2459 16.2917 11.0021 16.1907 10.8224 16.011L5.07238 10.261C4.69812 9.88673 4.69812 9.27994 5.07238 8.90569C5.44663 8.53144 6.05341 8.53144 6.42766 8.90569L11.5 13.978L16.5724 8.90569C16.9466 8.53144 17.5534 8.53144 17.9277 8.90569Z"
                                 fill="#727272" />
@@ -184,11 +188,12 @@
                 <div class="excursion-selector__item">
                     <label class="excursion-selector__label" for="children">Кол-во детей</label>
                     <div class="excursion-selector__wrapper">
-                        <select class="excursion-selector__input excursion-selector__input--short" id="children">
+                        <select class="excursion-selector__input excursion-selector__input--short" id="children"
+                            name="children">
                             <option value="0">0</option>
                             <option value="1">1</option>
                         </select>
-                        <svg class="excursion-selector_svg" xmlns="http://www.w3.org/2000/svg" width="23" height="23"
+                        <svg class="excursion-selector__svg" xmlns="http://www.w3.org/2000/svg" width="23" height="23"
                             viewBox="0 0 23 23" fill="none">
                             <path
                                 d="M17.9277 8.90569C18.3019 9.27994 18.3019 9.88672 17.9277 10.261L12.1777 16.011C11.9979 16.1907 11.7542 16.2917 11.5 16.2917C11.2459 16.2917 11.0021 16.1907 10.8224 16.011L5.07238 10.261C4.69812 9.88673 4.69812 9.27994 5.07238 8.90569C5.44663 8.53144 6.05341 8.53144 6.42766 8.90569L11.5 13.978L16.5724 8.90569C16.9466 8.53144 17.5534 8.53144 17.9277 8.90569Z"
@@ -201,58 +206,58 @@
 
             <div class="excursion-list">
                 <div class="excursion-card excursion-card--invalid">
-                    <div class="excursion-params">
-                        <p class="day-price day-price--invalid">18.06.2026 (чт.)</p>
-                        <p class="day-price day-price--invalid">60.00 BYN / 55.00 BYN</p>
+                    <div class="excursion-card__params">
+                        <p class="excursion-card__date excursion-card__date--invalid">18.06.2026 (чт.)</p>
+                        <p class="excursion-card__price excursion-card__price--invalid">60.00 BYN / 55.00 BYN</p>
                     </div>
-                    <p class="time time--invalid">Начало: 18:00 ~ 4 ч. 15 мин.</p>
-                    <div class="excursion-params">
-                        <p class="seat seat--invalid">Нет мест</p>
-                    </div>
-                </div>
-                <div class="excursion-card">
-                    <div class="excursion-params">
-                        <p class="day-price">25.06.2026 (чт.)</p>
-                        <p class="day-price">60.00 BYN / 55.00 BYN</p>
-                    </div>
-                    <p class="time">Начало: 18:00 ~ 4 ч. 15 мин.</p>
-                    <div class="excursion-params">
-                        <p class="seat">Осталось мест: 2</p>
-                        <button class="book">Бронировать</button>
+                    <p class="excursion-card__time excursion-card__time--invalid">Начало: 18:00 ~ 4 ч. 15 мин.</p>
+                    <div class="excursion-card__params">
+                        <p class="excursion-card__seat excursion-card__seat--invalid">Нет мест</p>
                     </div>
                 </div>
                 <div class="excursion-card">
-                    <div class="excursion-params">
-                        <p class="day-price">25.06.2026 (чт.)</p>
-                        <p class="day-price">60.00 BYN / 55.00 BYN</p>
+                    <div class="excursion-card__params">
+                        <p class="excursion-card__date">25.06.2026 (чт.)</p>
+                        <p class="excursion-card__price">60.00 BYN / 55.00 BYN</p>
                     </div>
-                    <p class="time">Начало: 18:00 ~ 4 ч. 15 мин.</p>
-                    <div class="excursion-params">
-                        <p class="seat">Осталось мест: 2</p>
-                        <button class="book">Бронировать</button>
+                    <p class="excursion-card__time">Начало: 18:00 ~ 4 ч. 15 мин.</p>
+                    <div class="excursion-card__params">
+                        <p class="excursion-card__seat">Осталось мест: 2</p>
+                        <button class="excursion-card__book">Бронировать</button>
+                    </div>
+                </div>
+                <div class="excursion-card">
+                    <div class="excursion-card__params">
+                        <p class="excursion-card__date">25.06.2026 (чт.)</p>
+                        <p class="excursion-card__price">60.00 BYN / 55.00 BYN</p>
+                    </div>
+                    <p class="excursion-card__time">Начало: 18:00 ~ 4 ч. 15 мин.</p>
+                    <div class="excursion-card__params">
+                        <p class="excursion-card__seat">Осталось мест: 2</p>
+                        <button class="excursion-card__book">Бронировать</button>
                     </div>
                 </div>
 
                 <div class="excursion-card">
-                    <div class="excursion-params">
-                        <p class="day-price">25.06.2026 (чт.)</p>
-                        <p class="day-price">60.00 BYN / 55.00 BYN</p>
+                    <div class="excursion-card__params">
+                        <p class="excursion-card__date">25.06.2026 (чт.)</p>
+                        <p class="excursion-card__price">60.00 BYN / 55.00 BYN</p>
                     </div>
-                    <p class="time">Начало: 18:00 ~ 4 ч. 15 мин.</p>
-                    <div class="excursion-params">
-                        <p class="seat">Осталось мест: 2</p>
-                        <button class="book">Бронировать</button>
+                    <p class="excursion-card__time">Начало: 18:00 ~ 4 ч. 15 мин.</p>
+                    <div class="excursion-card__params">
+                        <p class="excursion-card__seat">Осталось мест: 2</p>
+                        <button class="excursion-card__book">Бронировать</button>
                     </div>
                 </div>
                 <div class="excursion-card">
-                    <div class="excursion-params">
-                        <p class="day-price">25.06.2026 (чт.)</p>
-                        <p class="day-price">60.00 BYN / 55.00 BYN</p>
+                    <div class="excursion-card__params">
+                        <p class="excursion-card__date">25.06.2026 (чт.)</p>
+                        <p class="excursion-card__price">60.00 BYN / 55.00 BYN</p>
                     </div>
-                    <p class="time">Начало: 18:00 ~ 4 ч. 15 мин.</p>
-                    <div class="excursion-params">
-                        <p class="seat">Осталось мест: 2</p>
-                        <button class="book">Бронировать</button>
+                    <p class="excursion-card__time">Начало: 18:00 ~ 4 ч. 15 мин.</p>
+                    <div class="excursion-card__params">
+                        <p class="excursion-card__seat">Осталось мест: 2</p>
+                        <button class="excursion-card__book" type="button">Бронировать</button>
                     </div>
                 </div>
             </div>
@@ -262,13 +267,14 @@
             <h2 class="excursion__reviews-title">Отзывы наших клиентов</h2>
             <div class="excursion__reviews-box">
                 <div class="excursion__reviews-card">
-                    <img class="review-photo" src="/images/Review.png" alt="фото">
-                    <div class="review-box">
-                        <div class="review-box-content">
-                            <p class="review-name">Марина, <span class="review-name--color">Санкт-Петербург</span></p>
-                            <p class="review-date">11-Июня-2026</p>
+                    <img class="excursion__review-photo" src="/images/Review.png" alt="фото">
+                    <div class="excursion__review-body">
+                        <div class="excursion__review-content">
+                            <p class="excursion__review-author">Марина, <span
+                                    class="excursion__review-author--colored">Санкт-Петербург</span></p>
+                            <p class="excursion__review-date">11-Июня-2026</p>
                         </div>
-                        <div class="rate">
+                        <div class="excursion__review-rating">
                             <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14"
                                 fill="none">
                                 <g clip-path="url(#clip0_16_192)">
@@ -340,21 +346,25 @@
                                 </defs>
                             </svg>
                         </div>
-                        <p class="review-text">Поездка очень понравилась! Усадьба Огинского, которого знают все, но о
+                        <p class="excursion__review-text"
+                            data-full-text="Поездка очень понравилась! Усадьба Огинского, которого знают все, но о нем знают меньше. Быт белорусской усадьбы атмосфере. Три очень интересных костела, православный храм. Гид Юрий рассказывал интересно, видна любовь к родному краю, что всегда вдохновляет. Три очень интересных костела, православный храм. Гид Юрий рассказывал интересно, видна любовь к родному краю, что всегда вдохновляет. Три очень интересных костела, православный храм. Гид Юрий рассказывал интересно, видна любовь к родному краю, что всегда вдохновляет. Три очень интересных костела, православный храм. Гид Юрий рассказывал интересно, видна любовь к родному краю, что всегда вдохновляет.">
+                            Поездка очень понравилась! Усадьба Огинского, которого знают
+                            все, но о
                             нем знают меньше. Быт белорусской усадьбы атмосфере. Три очень интересных костела,
                             православный храм. Гид Юрий рассказывал интересно, видна любовь к родному краю, что всегда
                             вдохновляет. Три очень интересных костела, православный храм. Ги... </p>
-                        <a class="next" href="#">далее...</a>
+                        <a class="excursion__review-more" href="#">далее...</a>
                     </div>
                 </div>
                 <div class="excursion__reviews-card">
-                    <img class="review-photo" src="/images/Review.png" alt="фото">
-                    <div class="review-box">
-                        <div class="review-box-content">
-                            <p class="review-name">Марина, <span class="review-name--color">Санкт-Петербург</span></p>
-                            <p class="review-date">11-Июня-2026</p>
+                    <img class="excursion__review-photo" src="/images/Review.png" alt="фото">
+                    <div class="excursion__review-body">
+                        <div class="excursion__review-content">
+                            <p class="excursion__review-author">Марина, <span
+                                    class="excursion__review-author--colored">Санкт-Петербург</span></p>
+                            <p class="excursion__review-date">11-Июня-2026</p>
                         </div>
-                        <div class="rate">
+                        <div class="excursion__review-rating">
                             <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14"
                                 fill="none">
                                 <g clip-path="url(#clip0_16_192)">
@@ -426,23 +436,41 @@
                                 </defs>
                             </svg>
                         </div>
-                        <p class="review-text">Поездка очень понравилась! Усадьба Огинского, которого знают все, но о
+                        <p class="excursion__review-text">Поездка очень понравилась! Усадьба Огинского, которого знают
+                            все, но о
                             нем знают меньше. Быт белорусской усадьбы атмосфере. Три очень интересных костела,
                             православный храм.</p>
                     </div>
                 </div>
             </div>
+
+            <div class="excursion__reviews-controls">
+                <button class="excursion__reviews-btn excursion__reviews-btn--prev">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="8" height="13" viewBox="0 0 8 13" fill="none">
+                        <path
+                            d="M7.06489 0.268405C6.70691 -0.0895763 6.12651 -0.0895763 5.76853 0.268405L0.268525 5.7684C0.0966171 5.94031 4.01338e-05 6.17347 4.01338e-05 6.41658C4.01338e-05 6.6597 0.0966167 6.89286 0.268525 7.06477L5.76852 12.5648C6.1265 12.9227 6.70691 12.9227 7.06489 12.5648C7.42287 12.2068 7.42287 11.6264 7.06489 11.2684L2.21307 6.41658L7.06489 1.56477C7.42287 1.20679 7.42287 0.626385 7.06489 0.268405Z"
+                            fill="white" />
+                    </svg>
+                </button>
+                <button class="excursion__reviews-btn excursion__reviews-btn--next">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="8" height="13" viewBox="0 0 8 13" fill="none">
+                        <path
+                            d="M0.268485 0.268405C0.626466 -0.0895763 1.20687 -0.0895763 1.56485 0.268405L7.06485 5.7684C7.23676 5.94031 7.33333 6.17347 7.33333 6.41658C7.33333 6.6597 7.23676 6.89286 7.06485 7.06477L1.56485 12.5648C1.20687 12.9227 0.626468 12.9227 0.268488 12.5648C-0.0894929 12.2068 -0.089493 11.6264 0.268487 11.2684L5.12031 6.41658L0.268486 1.56477C-0.0894951 1.20679 -0.0894952 0.626385 0.268485 0.268405Z"
+                            fill="white" />
+                    </svg>
+                </button>
+            </div>
         </div>
     </section>
 
     <footer class="footer">
-        <div class="footer-logo--box">
-            <img class="footer-logo" src="/images/Ekskurs.png" alt="Ekskursii.by">
-        </div>
-        <div class="footer-content">
-            <div class="footer-contacts">
-                <p class="contact">КОНТАКТЫ</p>
-                <div class="call">
+        <a class="footer__logo-box" href="#">
+            <img class="footer__logo" src="/images/Ekskurs.png" alt="Ekskursii.by">
+        </a>
+        <div class="footer__content">
+            <div class="footer__contacts">
+                <p class="footer__contact-title">КОНТАКТЫ</p>
+                <div class="footer__phone">
                     <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none">
                         <g clip-path="url(#clip0_16_284)">
                             <path
@@ -455,10 +483,10 @@
                             </clipPath>
                         </defs>
                     </svg>
-                    <p class="num">+375 17 394-49-13</p>
+                    <a class="footer__phone-link" href="tel:+375173944913">+375 17 394-49-13</a>
                 </div>
 
-                <div class="call">
+                <div class="footer__phone">
                     <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none">
                         <g clip-path="url(#clip0_16_284)">
                             <path
@@ -471,36 +499,40 @@
                             </clipPath>
                         </defs>
                     </svg>
-                    <p class="num">+375 29 756-66-65</p>
+                    <a class="footer__phone-link" href="tel:+375297566665">+375 29 756-66-65</a>
                 </div>
 
-                <div class="social">
-                    <a href="#" class="messenger">
+                <div class="footer__socials">
+                    <a href="#" class="footer__messenger">
                         <img src="/images/WhatsAppcircle.svg" alt="WhatsApp">
                     </a>
-                    <a href="#" class="messenger">
+                    <a href="#" class="footer__messenger">
                         <img src="/images/Telegramcircle.svg" alt="Telegram">
                     </a>
-                    <a href="#" class="messenger">
+                    <a href="#" class="footer__messenger">
                         <img src="/images/Vibercircle.svg" alt="Viber">
                     </a>
                 </div>
             </div>
 
-            <div class="footer-info">
-                <p class="footer-info--att">© Частное научно-производственное унитарное предприятие
+            <div class="footer__info">
+                <p class="footer__info-text">© Частное научно-производственное унитарное предприятие
                     "Автоматизированные технологии туризма"</p>
-                <p class="footer-info--certified">Свидетельство о регистрации №1808 от 9.08.2007 выдано Минским
+                <p class="footer__info-cert">Свидетельство о регистрации №1808 от 9.08.2007 выдано Минским
                     горисполкомом. УНП: 190855081 Сертификат соответствия туристических услуг СТБ № BY/112 04.03. 071.01
                     00099 выдан Национальным агентством по туризму РБ, действителен до 22.10.2029 г.</p>
             </div>
         </div>
 
-        <div class="footer-line">
-            <p class="footer-company">© 2007-2026 Частное научно-производственное унитарное предприятие "Автоматизированные технологии туризма"</p>
+        <div class="footer__line">
+            <p class="footer__copyright">© 2007-2026 Частное научно-производственное унитарное предприятие
+                "Автоматизированные технологии туризма"</p>
         </div>
     </footer>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/ru.js"></script>
 
+    <script src="script.js"></script>
 </body>
 
 </html>
