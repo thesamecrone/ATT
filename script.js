@@ -1,10 +1,19 @@
 document.addEventListener('DOMContentLoaded', () => {
+  const scheduleBtn = document.querySelector('.hero__btn');
+  const scheduleBlock = document.querySelector('.excursion__schedule');
+
+  scheduleBtn?.addEventListener('click', (e) => {
+    e.preventDefault();
+    scheduleBlock?.scrollIntoView({ behavior: 'smooth' });
+  });
+
   const form = document.querySelector('.excursion-selector');
   const dateFrom = document.getElementById('date-from');
   const dateTo = document.getElementById('date-to');
 
   if (typeof flatpickr !== 'undefined' && dateFrom && dateTo) {
     const pickerTo = flatpickr(dateTo, {
+      disableMobile: true,
       locale: 'ru',
       dateFormat: 'd.m.Y',
       minDate: 'today'
@@ -16,7 +25,7 @@ document.addEventListener('DOMContentLoaded', () => {
       minDate: 'today',
       onChange: (dates, dateStr) => pickerTo.set('minDate', dateStr)
     });
-    
+
     document.querySelectorAll('.excursion-selector__wrapper').forEach(wrapper => {
       const input = wrapper.querySelector('.excursion-selector__input--date');
 
@@ -34,95 +43,89 @@ document.addEventListener('DOMContentLoaded', () => {
     console.log(data);
   });
 
-  const moreLinks = document.querySelectorAll('.excursion__review-more');
+  // карусель отзывов
 
-  moreLinks.forEach(link => {
-    link.addEventListener('click', (e) => {
-      e.preventDefault();
+  document.addEventListener('click', function (e) {
+  const link = e.target.closest('.excursion__review-more');
+  if (!link) return;
 
-      const reviewText = link.previousElementSibling;
-      if (!reviewText) return;
+  e.preventDefault();
 
-      const card = link.closest('.excursion__reviews-card');
-      const photo = card?.querySelector('.excursion__review-photo');
+  const card = link.closest('.excursion__reviews-card');
+  if (!card) return;
 
-      if (!reviewText.dataset.shortText) {
-        reviewText.dataset.shortText = reviewText.textContent.trim();
-      }
+  const reviewText = card.querySelector('.excursion__review-text');
+  if (!reviewText) return;
 
-      const isExpanded = reviewText.classList.toggle('is-expanded');
+  const photo = card.querySelector('.excursion__review-photo');
 
-      if (isExpanded) {
-        reviewText.textContent = reviewText.dataset.fullText;
-        link.textContent = 'свернуть';
-
-        if (photo) photo.style.marginBottom = '20px';
-      } else {
-        reviewText.textContent = reviewText.dataset.shortText;
-        link.textContent = 'далее...';
-
-        if (photo) photo.style.marginBottom = '';
-        if (card) card.style.paddingBottom = '';
-      }
-    });
-  });
-
-  const scheduleBtn = document.querySelector('.hero__btn');
-  const scheduleBlock = document.querySelector('.excursion__schedule');
-
-  scheduleBtn?.addEventListener('click', (e) => {
-    e.preventDefault();
-    scheduleBlock?.scrollIntoView({ behavior: 'smooth' });
-  });
-
-  // слайдер
-
-  const reviewsBox = document.querySelector('.excursion__reviews-box');
-  const btnPrev = document.querySelector('.excursion__reviews-btn--prev');
-  const btnNext = document.querySelector('.excursion__reviews-btn--next');
-  const cards = document.querySelectorAll('.excursion__reviews-card');
-
-  if (!reviewsBox || !btnPrev || !btnNext || cards.length === 0) {
-    console.error('Elements were not found!');
-    return;
+  if (!reviewText.dataset.shortText) {
+    reviewText.dataset.shortText = reviewText.textContent.trim();
   }
 
-  cards.forEach(card => {
-    const clone = card.cloneNode(true);
-    reviewsBox.appendChild(clone);
-  });
+  const isExpanded = reviewText.classList.toggle('is-expanded');
 
-  const totalCards = cards.length;
-  const cardWidth = cards[0].offsetWidth + 24;
-  let currentPosition = 0;
+  if (isExpanded) {
+    reviewText.textContent = reviewText.dataset.fullText;
+    link.textContent = 'свернуть';
 
-  let lastClicked = null;
+    if (photo) photo.style.marginBottom = '20px';
+  } else {
+    reviewText.textContent = reviewText.dataset.shortText;
+    link.textContent = 'далее...';
 
-  btnPrev.addEventListener('click', function () {
-    if (lastClicked === 'prev') return;
+    if (photo) photo.style.marginBottom = '';
+    if (card) card.style.paddingBottom = '';
+  }
+});
 
-    currentPosition = (currentPosition - 1 + totalCards) % totalCards;
-    const scrollToPosition = currentPosition * cardWidth;
 
-    reviewsBox.scrollTo({
-      left: scrollToPosition,
-      behavior: 'smooth'
+// 2. Слайдер с клонированием
+const reviewsBox = document.querySelector('.excursion__reviews-box');
+const btnPrev = document.querySelector('.excursion__reviews-btn--prev');
+const btnNext = document.querySelector('.excursion__reviews-btn--next');
+
+if (reviewsBox && btnPrev && btnNext) {
+  const originalCards = Array.from(reviewsBox.querySelectorAll('.excursion__reviews-card'));
+
+  if (originalCards.length > 0) {
+    // Клонируем оригиналы
+    originalCards.forEach(card => {
+      const clone = card.cloneNode(true);
+      reviewsBox.appendChild(clone);
     });
 
-    lastClicked = 'prev';
-  });
+    // Сбрасываем скролл в ноль при загрузке
+    reviewsBox.scrollLeft = 0;
 
-  btnNext.addEventListener('click', function () {
-    if (lastClicked === 'next') return;
+    const totalCards = originalCards.length;
+    let currentPosition = 0;
 
-    currentPosition = (currentPosition + 1) % totalCards;
-    const scrollToPosition = currentPosition * cardWidth;
+    // Динамический расчет ширины шага при каждом клике
+    const getStepWidth = () => {
+      const firstCard = reviewsBox.querySelector('.excursion__reviews-card');
+      const gap = parseFloat(window.getComputedStyle(reviewsBox).gap) || 0;
+      return firstCard.offsetWidth + gap;
+    };
 
-    reviewsBox.scrollTo({
-      left: scrollToPosition,
-      behavior: 'smooth'
+    // Вперед
+    btnNext.addEventListener('click', function () {
+      currentPosition = (currentPosition + 1) % totalCards;
+      reviewsBox.scrollTo({
+        left: currentPosition * getStepWidth(),
+        behavior: 'smooth'
+      });
     });
 
-    lastClicked = 'next';
-  });
-})
+    // Назад
+    btnPrev.addEventListener('click', function () {
+      currentPosition = (currentPosition - 1 + totalCards) % totalCards;
+      reviewsBox.scrollTo({
+        left: currentPosition * getStepWidth(),
+        behavior: 'smooth'
+      });
+    });
+  }
+}
+
+});

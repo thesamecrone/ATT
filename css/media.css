@@ -6,6 +6,12 @@
     .excursion__schedule {
         width: 92%;
         justify-content: center;
+        margin: 0;
+        height: 100%;
+    }
+
+    .excursion__title {
+        margin-top: 80px;
     }
 
     .excursion-selector {
@@ -17,6 +23,10 @@
     .excursion-selector__input--short,
     .excursion-selector__btn {
         width: 155px;
+    }
+
+    .excursion__reviews-title {
+        margin: 0;
     }
 
     .excursion-list,
@@ -33,23 +43,58 @@
         width: 80%;
     }
 
-    .excursion__reviews-box {
-        flex-wrap: wrap;
-        height: 500px;
+    .excursion__reviews {
+        width: 670px;
     }
 
-    .excursion__reviews-controls {
-        display: none;
+    .excursion__reviews-card,
+    .excursion__review-content {
+        align-items: center;
+        flex-direction: column;
+    }
+
+    .excursion__review-photo {
+        margin: 20px 0 10px 0;
+    }
+
+    .excursion__reviews-box {
+        overflow-x: hidden;
+        padding: 30px 16px 20px 16px;
+        gap: 50px;
+        justify-content: flex-start;
+        align-items: stretch;
+    }
+
+    .excursion__reviews-card {
+        flex: 0 0 100%;
+        min-width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
+    }
+
+    .excursion__review-photo {
+        align-items: center;
+        flex-direction: column;
+    }
+
+    .excursion__review-rating {
+        align-self: center;
     }
 
     .footer__line {
         width: 80%;
     }
 
+    .excursion__reviews-controls {
+        padding-right: 16px;
+    }
+
 }
 
 @media screen and (max-width: 769px) {
-    .nav, .menu {
+
+    .nav,
+    .menu {
         gap: 13px;
     }
 
@@ -62,20 +107,47 @@
         flex-direction: column;
         align-items: center;
         height: 100%;
+        gap: 20px;
+        margin: 30px 0 0 0;
+    }
+
+    .excursion-selector {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+    }
+
+    .excursion__schedule {
+        height: 100%;
+        margin: 0 0 60px 0;
+    }
+
+    .excursion__reviews {
+        margin-bottom: 60px;
     }
 
     .footer {
         height: 475px;
     }
 
-    .footer__content{
+    .footer__content {
         flex-direction: column;
         height: 270px;
         justify-content: center;
         gap: 18px
     }
 
-    .footer__copyright, .footer__info-cert {
+    .footer__copyright,
+    .footer__info-cert {
         width: 80%;
+    }
+
+    .excursion-selector__input,
+    .excursion-selector__input--short,
+    .excursion-selector__btn {
+        width: 298px;
+        height: 35px;
+
     }
 }
