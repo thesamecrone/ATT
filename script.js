@@ -20,6 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     const pickerFrom = flatpickr(dateFrom, {
+      disableMobile: true,
       locale: 'ru',
       dateFormat: 'd.m.Y',
       minDate: 'today',
