@@ -43,101 +43,102 @@ document.addEventListener('DOMContentLoaded', () => {
     console.log(data);
   });
 
-  // карусель отзывов
+  // карусель
 
   document.addEventListener('click', function (e) {
-  const link = e.target.closest('.excursion__review-more');
-  if (!link) return;
+    const link = e.target.closest('.excursion__review-more');
+    if (!link) return;
 
-  e.preventDefault();
+    e.preventDefault();
 
-  const card = link.closest('.excursion__reviews-card');
-  if (!card) return;
+    const card = link.closest('.excursion__reviews-card');
+    if (!card) return;
 
-  const reviewText = card.querySelector('.excursion__review-text');
-  if (!reviewText) return;
+    const reviewText = card.querySelector('.excursion__review-text');
+    if (!reviewText) return;
 
-  const photo = card.querySelector('.excursion__review-photo');
+    const photo = card.querySelector('.excursion__review-photo');
 
-  if (!reviewText.dataset.shortText) {
-    reviewText.dataset.shortText = reviewText.textContent.trim();
-  }
+    if (!reviewText.dataset.shortHtml) {
+      reviewText.dataset.shortHtml = reviewText.innerHTML;
+    }
 
-  const isExpanded = reviewText.classList.toggle('is-expanded');
+    const isExpanded = reviewText.classList.toggle('is-expanded');
 
-  if (isExpanded) {
-    reviewText.textContent = reviewText.dataset.fullText;
-    link.textContent = 'свернуть';
+    if (isExpanded) {
+      reviewText.textContent = reviewText.dataset.fullText;
+      link.textContent = 'свернуть';
 
-    if (photo) photo.style.marginBottom = '20px';
-  } else {
-    reviewText.textContent = reviewText.dataset.shortText;
-    link.textContent = 'далее...';
+      if (photo) photo.style.marginBottom = '20px';
+    } else {
+      reviewText.innerHTML = reviewText.dataset.shortHtml;
+      link.textContent = 'далее...';
 
-    if (photo) photo.style.marginBottom = '';
-    if (card) card.style.paddingBottom = '';
-  }
-});
-
-const reviewsBox = document.querySelector('.excursion__reviews-box');
-const btnPrev = document.querySelector('.excursion__reviews-btn--prev');
-const btnNext = document.querySelector('.excursion__reviews-btn--next');
-
-if (reviewsBox && btnPrev && btnNext) {
-  const originalCards = Array.from(reviewsBox.querySelectorAll('.excursion__reviews-card'));
-
-  if (originalCards.length > 0) {
-    let isCloned = false;
-    let currentPosition = 0;
-    const totalCards = originalCards.length;
-
-    const initClonesOnce = () => {
-      if (!isCloned) {
-        originalCards.forEach(card => {
-          const clone = card.cloneNode(true);
-          reviewsBox.appendChild(clone);
-        });
-        isCloned = true;
-      }
-    };
-
-    btnNext.addEventListener('click', function () {
-      initClonesOnce();
-
-      const gap = parseFloat(window.getComputedStyle(reviewsBox).gap) || 24;
-      const cardWidth = originalCards[0].offsetWidth + gap;
-
-      currentPosition = (currentPosition + 1) % totalCards;
-      reviewsBox.scrollTo({
-        left: currentPosition * cardWidth,
-        behavior: 'smooth'
-      });
-    });
-
-    btnPrev.addEventListener('click', function () {
-      initClonesOnce();
-
-      const gap = parseFloat(window.getComputedStyle(reviewsBox).gap) || 24;
-      const cardWidth = originalCards[0].offsetWidth + gap;
-
-      currentPosition = (currentPosition - 1 + totalCards) % totalCards;
-      reviewsBox.scrollTo({
-        left: currentPosition * cardWidth,
-        behavior: 'smooth'
-      });
-    });
-  }
-}
-
-
-const burgerBtn = document.querySelector('.header__burger');
-const menuList = document.querySelector('.menu');
-
-if (burgerBtn && menuList) {
-  burgerBtn.addEventListener('click', () => {
-    menuList.classList.toggle('open');
-    burgerBtn.classList.toggle('active');
+      if (photo) photo.style.marginBottom = '';
+      if (card) card.style.paddingBottom = '';
+    }
   });
-}
+
+  const reviewsBox = document.querySelector('.excursion__reviews-box');
+  const btnPrev = document.querySelector('.excursion__reviews-btn--prev');
+  const btnNext = document.querySelector('.excursion__reviews-btn--next');
+
+  if (reviewsBox && btnPrev && btnNext) {
+    const originalCards = Array.from(reviewsBox.querySelectorAll('.excursion__reviews-card'));
+
+    if (originalCards.length > 0) {
+      let isCloned = false;
+      let currentPosition = 0;
+
+      const initClonesOnce = () => {
+        if (!isCloned) {
+          originalCards.forEach(card => {
+            const clone = card.cloneNode(true);
+            reviewsBox.appendChild(clone);
+          });
+          isCloned = true;
+        }
+      };
+
+      btnNext.addEventListener('click', function () {
+        if (currentPosition === 0) {
+          initClonesOnce();
+          currentPosition = 1;
+
+          const gap = parseFloat(window.getComputedStyle(reviewsBox).gap) || 24;
+          const cardWidth = originalCards[0].offsetWidth + gap;
+
+          reviewsBox.scrollTo({
+            left: currentPosition * cardWidth,
+            behavior: 'smooth'
+          });
+        }
+      });
+
+      btnPrev.addEventListener('click', function () {
+        if (currentPosition === 1) {
+          currentPosition = 0;
+
+          const gap = parseFloat(window.getComputedStyle(reviewsBox).gap) || 24;
+          const cardWidth = originalCards[0].offsetWidth + gap;
+
+          reviewsBox.scrollTo({
+            left: currentPosition * cardWidth,
+            behavior: 'smooth'
+          });
+        }
+      });
+    }
+  }
+
+  const burgerBtn = document.querySelector('.header__burger');
+  const menuList = document.querySelector('.menu');
+
+  if (burgerBtn && menuList) {
+    burgerBtn.addEventListener('click', () => {
+      menuList.classList.toggle('open');
+      burgerBtn.classList.toggle('active');
+    });
+  }
 
 });

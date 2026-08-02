@@ -54,6 +54,7 @@ button {
 
 html {
     font-family: 'Manrope', sans-serif;
+    scroll-behavior: smooth;
 }
 
 .header {
@@ -242,6 +243,10 @@ html {
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+.excursion__dots {
+  display: none;
 }
 
 .excursion__schedule {

@@ -301,6 +301,23 @@
         width: 318px;
     }
 
+    .excursion__reviews-more {
+        display: none;
+    }
+
+    .excursion__dots {
+        display: inline;
+    }
+
+    .excursion__reviews-text {
+        display: block;
+    }
+
+    .excursion__reviews-text.active .excursion__reviews-more,
+    .excursion__reviews-card.active .excursion__reviews-more {
+        display: inline;
+    }
+
     .footer {
         height: 563px;
     }
