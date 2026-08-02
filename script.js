@@ -79,8 +79,6 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 });
 
-
-// 2. Слайдер с клонированием
 const reviewsBox = document.querySelector('.excursion__reviews-box');
 const btnPrev = document.querySelector('.excursion__reviews-btn--prev');
 const btnNext = document.querySelector('.excursion__reviews-btn--next');
@@ -89,43 +87,57 @@ if (reviewsBox && btnPrev && btnNext) {
   const originalCards = Array.from(reviewsBox.querySelectorAll('.excursion__reviews-card'));
 
   if (originalCards.length > 0) {
-    // Клонируем оригиналы
-    originalCards.forEach(card => {
-      const clone = card.cloneNode(true);
-      reviewsBox.appendChild(clone);
-    });
-
-    // Сбрасываем скролл в ноль при загрузке
-    reviewsBox.scrollLeft = 0;
-
-    const totalCards = originalCards.length;
+    let isCloned = false;
     let currentPosition = 0;
+    const totalCards = originalCards.length;
 
-    // Динамический расчет ширины шага при каждом клике
-    const getStepWidth = () => {
-      const firstCard = reviewsBox.querySelector('.excursion__reviews-card');
-      const gap = parseFloat(window.getComputedStyle(reviewsBox).gap) || 0;
-      return firstCard.offsetWidth + gap;
+    const initClonesOnce = () => {
+      if (!isCloned) {
+        originalCards.forEach(card => {
+          const clone = card.cloneNode(true);
+          reviewsBox.appendChild(clone);
+        });
+        isCloned = true;
+      }
     };
 
-    // Вперед
     btnNext.addEventListener('click', function () {
+      initClonesOnce();
+
+      const gap = parseFloat(window.getComputedStyle(reviewsBox).gap) || 24;
+      const cardWidth = originalCards[0].offsetWidth + gap;
+
       currentPosition = (currentPosition + 1) % totalCards;
       reviewsBox.scrollTo({
-        left: currentPosition * getStepWidth(),
+        left: currentPosition * cardWidth,
         behavior: 'smooth'
       });
     });
 
-    // Назад
     btnPrev.addEventListener('click', function () {
+      initClonesOnce();
+
+      const gap = parseFloat(window.getComputedStyle(reviewsBox).gap) || 24;
+      const cardWidth = originalCards[0].offsetWidth + gap;
+
       currentPosition = (currentPosition - 1 + totalCards) % totalCards;
       reviewsBox.scrollTo({
-        left: currentPosition * getStepWidth(),
+        left: currentPosition * cardWidth,
         behavior: 'smooth'
       });
     });
   }
+}
+
+
+const burgerBtn = document.querySelector('.header__burger');
+const menuList = document.querySelector('.menu');
+
+if (burgerBtn && menuList) {
+  burgerBtn.addEventListener('click', () => {
+    menuList.classList.toggle('open');
+    burgerBtn.classList.toggle('active');
+  });
 }
 
 });

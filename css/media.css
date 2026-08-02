@@ -151,3 +151,254 @@
 
     }
 }
+
+@media screen and (max-width: 430px) {
+
+    .header {
+        justify-content: space-between;
+        padding: 0 16px;
+        position: relative;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .header__logo {
+        margin: 0 !important;
+        max-height: 36px;
+        width: auto;
+    }
+
+    .nav {
+        margin: 0 !important;
+        gap: 10px !important;
+    }
+
+    .nav__currency,
+    .nav__lang {
+        font-size: 13px;
+        padding: 0;
+    }
+
+    .btn.nav__btn {
+        display: none !important;
+    }
+
+    .header__burger {
+        display: flex !important;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 32px;
+        height: 32px;
+        padding: 6px;
+        background: transparent;
+        border: 1px solid rgba(255, 255, 255, 0.7);
+        border-radius: 4px;
+        cursor: pointer;
+        flex-shrink: 0;
+        box-sizing: border-box;
+    }
+
+    .header__burger span {
+        display: block;
+        width: 100%;
+        height: 2px;
+        background-color: #FFF;
+        border-radius: 2px;
+    }
+
+    .menu {
+        position: absolute;
+        top: 64px;
+        left: 0;
+        width: 100%;
+        background-color: #4D799D;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 20px 16px;
+        gap: 16px;
+        display: none;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        box-sizing: border-box;
+    }
+
+    .menu.open {
+        display: flex;
+    }
+
+    .hero__title {
+        font-size: 36px;
+        margin: 130px 16px 20px 16px;
+        width: auto;
+    }
+
+    .hero__title-group {
+        white-space: nowrap;
+    }
+
+    .hero__container {
+        height: 697px;
+        padding-left: 0;
+        align-items: center;
+    }
+
+    .hero {
+        height: 697px;
+        padding: 0;
+    }
+
+    .hero__text {
+        width: auto;
+        margin: 0 16px 60px 16px;
+        padding: 0;
+    }
+
+    .btn.hero__btn {
+        margin: 0 220px 10px 16px;
+    }
+
+    .hero__arrows {
+        margin: 0 300px 130px 101px;
+    }
+
+    .hero__arrows svg {
+        margin: 0;
+    }
+
+    .excursion__title {
+        margin-top: 60px;
+    }
+
+    .excursion-selector {
+        width: 358px;
+        height: 451px;
+        gap: 20px;
+    }
+
+    .excursion__schedule {
+        align-items: center;
+    }
+
+    .excursion-card {
+        width: 358px;
+        height: 103px;
+    }
+
+    .excursion__reviews {
+        width: 100%;
+    }
+
+    .excursion__reviews-box {
+        justify-content: flex-start;
+    }
+
+    .excursion__reviews-card {
+        width: 358px;
+        min-height: 336px;
+        overflow: hidden
+    }
+
+    .excursion__review-text {
+        width: 318px;
+    }
+
+    .footer {
+        height: 563px;
+    }
+
+    .footer__info,
+    .footer__info-text,
+    .footer__copyright,
+    .footer__info-cert {
+        width: 358px;
+    }
+
+    .footer__info {
+        margin-bottom: 20px;
+        height: 100%;
+    }
+
+    .footer__info-cert {
+        height: 126px;
+    }
+
+    .footer__content {
+        height: 340px;
+        margin: 20px 80px 0 80px;
+    }
+}
+
+@media screen and (max-width: 380px) {
+
+    .btn.hero__btn {
+        margin: 0 165px 10px 16px;
+    }
+
+    .footer__info,
+    .footer__info-text,
+    .footer__copyright,
+    .footer__info-cert {
+        width: 320px;
+    }
+
+    .hero__arrows {
+        margin: 0 300px 130px 153px;
+    }
+
+    .excursion__review-body {
+        padding: 20px;
+    }
+
+}
+
+@media screen and (max-width: 380px) {
+    .excursion-card {
+        width: 300px;
+        height: 103px;
+    }
+
+    .hero__title {
+        font-size: 32px;
+    }
+
+    .btn.hero__btn {
+        margin: 0 98px 10px 16px;
+    }
+
+    .hero__arrows {
+        margin: 0 190px 125px 110px;
+    }
+
+    .excursion-selector {
+        width: 300px;
+    }
+
+    .excursion-selector__input,
+    .excursion-selector__input--short,
+    .excursion-selector__btn {
+        width: 230px;
+    }
+
+    .excursion__review-text {
+        width: 250px;
+    }
+
+    .footer {
+        height: 650px;
+    }
+
+    .footer__info,
+    .footer__info-text,
+    .footer__copyright,
+    .footer__info-cert {
+        width: 270px;
+    }
+
+    .footer__info-cert {
+        height: 205px;
+    }
+
+    .footer__content {
+        height: 440px;
+        margin: 20px 80px 0 80px;
+    }
+}
