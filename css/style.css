@@ -13,22 +13,22 @@ input[type="date"]::-webkit-clear-button {
 
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
+    -webkit-appearance: none;
+    margin: 0;
 }
 
 input[type="number"] {
-  -moz-appearance: textfield;
-  appearance: textfield;
+    -moz-appearance: textfield;
+    appearance: textfield;
 }
 
-input, 
-select, 
+input,
+select,
 textarea {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  border-radius: 0;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border-radius: 0;
 }
 
 .excursion-selector__input {
@@ -66,7 +66,7 @@ html {
 }
 
 .header__burger {
-  display: none;
+    display: none;
 }
 
 .nav {
@@ -227,16 +227,33 @@ html {
     margin: 10px 0 0 85px;
 }
 
+@keyframes arrowWave {
+
+    0%,
+    100% {
+        opacity: 0.3;
+        transform: translateY(0);
+    }
+
+    50% {
+        opacity: 1;
+        transform: translateY(4px);
+    }
+}
+
 .hero__arrow--faded {
     top: 0;
+    animation: arrowWave 1.6s ease-in-out infinite 0s;
 }
 
 .hero__arrow--medium {
     top: 8px;
+    animation: arrowWave 1.6s ease-in-out infinite 0.2s;
 }
 
 .hero__arrow--solid {
     top: 16px;
+    animation: arrowWave 1.6s ease-in-out infinite 0.4s;
 }
 
 .excursion {
@@ -246,7 +263,7 @@ html {
 }
 
 .excursion__dots {
-  display: none;
+    display: none;
 }
 
 .excursion__schedule {

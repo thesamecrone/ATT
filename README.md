@@ -8,12 +8,12 @@ Landing Page сервиса бронирования экскурсий (HTML5, 
 ## 🚀 Запуск проекта
 
 ```bash
-# 1. Клонировать репозиторий
+# 1. Клонирование репозитория
 git clone [https://github.com/thesamecrone/ATT.git](https://github.com/thesamecrone/ATT.git)
 cd ATT
 
-# 2. Установить зависимости
+# 2. Установка зависимостей
 npm install
 
-# 3. Запустить в режиме разработки
+# 3. Запуск в режиме разработки
 npm run dev
